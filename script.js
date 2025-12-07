@@ -1,3 +1,29 @@
+function toggleDropdown(arrow) {
+  const dropdown = arrow.parentElement;
+
+  document.querySelectorAll('.dropdown').forEach(d => {
+    if (d !== dropdown) d.classList.remove('active');
+  });
+
+  dropdown.classList.toggle('active');
+}
+
+// CLOSE ON OUTSIDE CLICK
+document.addEventListener("click", function(e){
+  if(!e.target.closest(".dropdown")){
+    document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("active"));
+  }
+});
+
+// SIDEBAR CONTROLS
+function showSidebar() {
+  document.getElementById("sidebar").style.display = "block";
+}
+function hideSidebar() {
+  document.getElementById("sidebar").style.display = "none";
+}
+
+
 
 // Mobile Menu Toggle
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,6 +41,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+var arrow = document.querySelector(".arrow-btn");
+var dropdown = document.querySelector(".dropdown");
+
+arrow.onclick = function (e) {
+  e.stopPropagation();
+  dropdown.classList.toggle("active");
+};
+
+document.onclick = function () {
+  dropdown.classList.remove("active");
+};
 
     // Close mobile menu when clicking on a link
     const navLinksItems = document.querySelectorAll('.nav-links a');
@@ -70,36 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
         currentYearElement.textContent = new Date().getFullYear();
     }
 
-    // Form handling
-    const contactForm = document.querySelector('.contact-form form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = this.querySelector('input[type="text"]').value;
-            const email = this.querySelector('input[type="email"]').value;
-            const phone = this.querySelector('input[type="tel"]').value;
-            const department = this.querySelector('select').value;
-            const message = this.querySelector('textarea').value;
-
-            // Simple validation
-            if (!name || !email || !message) {
-                showNotification('Please fill in all required fields.', 'error');
-                return;
-            }
-
-            if (!isValidEmail(email)) {
-                showNotification('Please enter a valid email address.', 'error');
-                return;
-            }
-
-            // Simulate form submission
-            showNotification('Thank you! Your message has been sent successfully.', 'success');
-            this.reset();
-        });
-    }
 
     // Appointment booking functionality
     const appointmentButtons = document.querySelectorAll('.btn-outline');
@@ -109,6 +117,23 @@ document.addEventListener('DOMContentLoaded', function() {
             showNotification(`Appointment request sent for ${doctorName}. We'll contact you soon!`, 'success');
         });
     });
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // stop default submit
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let address = document.getElementById("address").value.trim();
+    let location = document.getElementById("location").value.trim();
+    let description = document.getElementById("description").value.trim();
+
+    if (name === "" || email === "" || address === "" || location === "" || description === "") {
+        alert("⚠️ Please fill in all fields!");
+        return;
+    }
+
+    // If all fields are valid, redirect
+    window.location.href = "404.html"; 
+});
 
     // Search functionality
     const searchInput = document.querySelector('.search-card input');

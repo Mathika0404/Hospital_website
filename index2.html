@@ -7,8 +7,8 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="checkstyle.css">
-  <link rel="stylesheet" href="style1.css">
-
+  <!-- <link rel="stylesheet" href="index2.css"> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -373,6 +373,7 @@
     font-size: 14px;
     padding: 0;
 }
+
 </style>
 </head>
 
@@ -384,7 +385,7 @@
     <!-- BRAND -->
     <div class="brand">
       <div class="logo">
-        <a href="index.html">
+        <a href="index2.html">
     <img src="./stacklylogo.png" alt="stacklylogo">
   </a>
       </div>
@@ -406,16 +407,13 @@
         </div>
 
         <ul class="dropdown-menu">
-          <li><a href="index2.html">Home 2</a></li>
+          <li><a href="index.html">Home 1</a></li>
         </ul>
       </li>
 
-    <li><a href="#services">Services</a></li>
-    <li><a href="#departments">Departments</a></li>
-    <li><a href="#doctors">Doctors</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-     <li><a href="login.html">Login</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#medicines">Our Medicines</a></li>
+      <li><a href="#contact">Contact Us</a></li>
 
     </ul>
 
@@ -432,15 +430,13 @@
       </div>
 
       <ul class="dropdown-menu">
-        <li><a href="index2.html">Home 2</a></li>
+        <li><a href="index.html">Home 1</a></li>
       </ul>
     </li>
 
-    <li><a href="#services">Services</a></li>
-    <li><a href="#departments">Departments</a></li>
-    <li><a href="#doctors">Doctors</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#medicines">Our Medicines</a></li>
+    <li><a href="#contact">Contact Us</a></li>
   </ul>
 
 </header>
@@ -475,52 +471,7 @@
       font-size: 1rem;
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 20px 40px 60px;
-      max-width: 1200px;
-      margin: auto;
-    }
 
-    .service-card {
-      background: #fff;
-      border-radius: 15px;
-      padding: 24px;
-      text-align: center;
-      box-shadow: 4px 8px 10px rgba(0,0,0,0.10);
-      transition: transform 0.3s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-5px);
-	  background-color: #ecf8fcef;
-    }
-    .service-icon {
-      font-size: 2.5rem;
-      color: 	#2f5f89;
-      margin-bottom: 12px;
-    }
-    .service-card h3 {
-      margin: 10px 0;
-      font-size: 1.2rem;
-      color: rgba(4, 5, 5, 0.877);
-    }
-    .service-card p {
-      color: #555;
-      font-size: 0.95rem;
-    }
-    .service-link {
-      display: inline-block;
-      margin-top: 12px;
-      font-weight: 600;
-      color: #2f5f89;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .service-link:hover {
-      color: #081d30;
-    }
 
     /* Right Slide Panel */
     .panel {
@@ -758,50 +709,85 @@
 </style>
 
 
-	<section class="hero" id="home">
-		<div class="container hero-inner">
-			<div class="hero-copy">
-				<h2>Premium Treatments for a Healthy Lifestyle</h2>
-				<p>
-					Experience world-class healthcare with our team of expert specialists. We provide comprehensive medical services with cutting-edge technology and compassionate care for you and your family.
-				</p>
+<main>
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <h2>Trusted Medicines for a Healthier Life</h2>
+      <p>
+        Discover premium-quality medicines and supplements designed to
+        support your health and wellness. We offer certified pharmaceutical
+        products with guaranteed safety and effectiveness.
+      </p>
 
-				<div class="cta-row">
-					<a href="#services" class="btn btn-primary">
-						<i class="fas fa-stethoscope"></i>
-						Our Services
-					</a>
-					<div class="online-chip">
-						<span class="dot"></span> 
-						2500+ Doctors Online
-					</div>
-				</div>
+      <div class="cta-row">
+        <a href="#medicines" class="btn btn-primary">
+          <i class="fas fa-pills"></i>
+          Our Supplements
+        </a>
+        <div class="online-chip">
+          <span class="dot"></span> 
+          1500+ Products Available
+        </div>
+      </div>
+    </div>
 
-				<div class="search-card">
-					<div class="search-icon">
-						<i class="fas fa-search"></i>
-					</div>
-					<input type="text" placeholder="Search for doctors, departments, or treatments" aria-label="Search medical services"/>
-					<button class="btn btn-dark" onclick="window.location.href='404page.html'"><i class="fas fa-search"></i> Search</button>
+    <div class="hero-visual">
+      <div class="blob"></div>
+      <img src="images/medicines.jpeg" alt="Medical Products" class="doctor-img" style="width: 350px;" height="auto">
 
-				</div>
-			</div>
+      <div class="floating-card">
+        <div class="card-icon">
+          <i class="fas fa-capsules"></i>
+        </div>
+        <div class="card-content">
+          <div class="card-title">Certified Quality Medicines</div>
+          <div class="card-subtitle">100% Genuine Products</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-			<div class="hero-visual">
-				<div class="blob"></div>
-				<img src="./doctor.png" alt="Professional Doctor" class="doctor-img">
-				<div class="floating-card">
-					<div class="card-icon">
-						<i class="fas fa-user-md"></i>
-					</div>
-					<div class="card-content">
-						<div class="card-title">Dr. Johnson</div>
-						<div class="card-subtitle">Cardiologist</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+<!-- MEDICINE STATS SECTION -->
+<section class="stats">
+  <div class="container stat-grid">
+
+    <div class="stat">
+      <div class="stat-icon">
+        <i class="fas fa-pills"></i>
+      </div>
+      <div class="stat-value">3000+</div>
+      <div class="stat-label">Medicines Available</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">
+        <i class="fas fa-prescription-bottle-alt"></i>
+      </div>
+      <div class="stat-value">500+</div>
+      <div class="stat-label">Supplements</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">
+        <i class="fas fa-truck"></i>
+      </div>
+      <div class="stat-value">24 Hrs</div>
+      <div class="stat-label">Fast Delivery</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <div class="stat-value">100%</div>
+      <div class="stat-label">Quality Assured</div>
+    </div>
+
+  </div>
+</section>
+
 
 	<section class="stats">
 		<div class="container stat-grid">
@@ -836,305 +822,117 @@
 		</div>
 	</section>
 
-	<section class="finder" id="appointment">
-		<div class="container">
-			<div class="finder-header">
-				<h2>Book Your Appointment</h2>
-				<p>Find the right doctor and schedule your visit in minutes</p>
-			</div>
-			<div class="finder-bar">
-				<select>
-					<option selected>Select Department</option>
-					<option>Cardiology</option>
-					<option>Neurology</option>
-					<option>Orthopedics</option>
-					<option>Radiology</option>
-					<option>Dermatology</option>
-					<option>Pediatrics</option>
-				</select>
-				<select>
-					<option selected>Select Doctor</option>
-					<option>Dr. Sarah Johnson</option>
-					<option>Dr. Michael Chen</option>
-					<option>Dr. Emily Rodriguez</option>
-					<option>Dr. David Kim</option>
-				</select>
-				<input type="date" />
-				<select>
-					<option selected>Select Location</option>
-					<option>Main Campus</option>
-					<option>City Clinic</option>
-					<option>North Branch</option>
-				</select>
-				<button class="btn btn-dark" onclick="window.location.href='404page.html'"><i class="fas fa-search"></i> Search</button>
-
-			</div>
-		</div>
-	</section>
-<main>
-	<section class="departments" id="departments">
+<section class="about" id="about">
   <div class="container">
-    <div class="section-header">
-      <h2>Our Departments</h2>
-      <p class="subtle">Comprehensive healthcare services across all major medical specialties</p>
-    </div>
-<div class="dept-grid">
-  <div class="dept" onclick="openPanel(
-    'General Medicine',
-    'assets/general-medicine.jpeg',
-    '✅ Comprehensive primary healthcare services for all age groups.\n✅ Routine health check-ups and preventive screenings.\n✅ Diagnosis and treatment of common illnesses and infections.\n✅ Management of chronic conditions like diabetes, hypertension, and asthma.\n✅ Vaccinations and immunization programs.\n✅ Lifestyle counseling for diet, exercise, and stress management.\n✅ Coordination with specialist doctors when advanced care is needed.'  )">
-    <div class="dept-icon"><i class="fas fa-stethoscope"></i></div>
-    <div class="dept-name">General Medicine</div>
-    <div class="dept-desc">Primary care and preventive medicine</div>
-  </div>
-
-  <div class="dept" onclick="openPanel(
-    'Cardiology',
-    'assets/cardiology.jpeg',
-'✅ Advanced cardiac care for adults and children\n✅ Diagnosis and treatment of heart diseases including coronary artery disease, arrhythmias, and heart failure\n✅ ECG, echocardiography, and stress tests\n✅ Interventional procedures such as angioplasty and stenting\n✅ Preventive cardiology programs for high-risk patients\n✅ Management of hypertension, cholesterol, and lifestyle-related heart risks\n✅ Cardiac rehabilitation and post-surgery follow-up'
-  )">
-    <div class="dept-icon"><i class="fas fa-heart"></i></div>
-    <div class="dept-name">Cardiology</div>
-    <div class="dept-desc">Heart and cardiovascular care</div>
-  </div>
-
-  <div class="dept" onclick="openPanel(
-    'Pulmonology',
-    'assets/pulmonology.jpeg',
-'✅ Expert care for respiratory conditions including asthma, COPD, bronchitis, and pneumonia\n✅ Pulmonary function tests and lung imaging\n✅ Management of chronic respiratory diseases\n✅ Advanced treatments for interstitial lung disease and pulmonary hypertension\n✅ Sleep apnea diagnosis and therapy\n✅ Smoking cessation programs and lung health counseling\n✅ Coordination with cardiology and ENT specialists for comprehensive care\n✅ Rehabilitation programs to improve lung function and quality of life'
-  )">
-    <div class="dept-icon"><i class="fas fa-lungs"></i></div>
-    <div class="dept-name">Pulmonology</div>
-    <div class="dept-desc">Respiratory system treatment</div>
-  </div>
-
-  <div class="dept" onclick="openPanel(
-    'Dental Care',
-    'assets/dental.jpeg',
-'✅ Comprehensive oral health check-ups and preventive care\n✅ Professional teeth cleaning and scaling\n✅ Tooth restoration, fillings, and crowns\n✅ Root canal treatment and endodontics\n✅ Dental surgery including extractions and implants\n✅ Orthodontics: braces and alignment correction\n✅ Cosmetic dentistry: whitening and veneers\n✅ Pediatric dental care for children\n✅ Emergency dental services for trauma and pain management\n✅ Oral health education and hygiene counseling'
-  )">
-    <div class="dept-icon"><i class="fas fa-tooth"></i></div>
-    <div class="dept-name">Dental Care</div>
-    <div class="dept-desc">Oral health and dental surgery</div>
-  </div>
-
-  <div class="dept" onclick="openPanel(
-    'Neurology',
-    'assets/neurology.jpeg',
-'✅ Diagnosis and treatment of neurological disorders\n✅ Management of migraines and chronic headaches\n✅ Epilepsy monitoring and treatment\n✅ Stroke care and rehabilitation\n✅ Parkinson’s disease and movement disorder management\n✅ Multiple sclerosis evaluation and therapy\n✅ Neurodegenerative disease support and treatment\n✅ Neuromuscular disorder management\n✅ Pediatric neurology services'
-  )">
-    <div class="dept-icon"><i class="fas fa-brain"></i></div>
-    <div class="dept-name">Neurology</div>
-    <div class="dept-desc">Brain and nervous system care</div>
-  </div>
-
-  <div class="dept" onclick="openPanel(
-    'Orthopedics',
-    'assets/orthopedics.jpeg',
-'✅ Diagnosis and treatment of bone and joint conditions\n✅ Fracture management and casting\n✅ Joint replacement surgeries (hip, knee, shoulder)\n✅ Arthroscopy and minimally invasive procedures\n✅ Sports injury evaluation and rehabilitation\n✅ Spine care and surgical interventions\n✅ Pediatric orthopedics services\n✅ Osteoporosis management\n✅ Physical therapy and post-operative rehabilitation\n✅ Patient education and preventive orthopedic care'
-  )">
-    <div class="dept-icon"><i class="fas fa-bone"></i></div>
-    <div class="dept-name">Orthopedics</div>
-    <div class="dept-desc">Bone and joint treatment</div>
-  </div>
-</div>
-
-</section>
-
-	<section class="services" id="services">
-  <div class="container">
-    <div class="section-header">
-      <h2>Our Services</h2>
-      <p class="subtle">State-of-the-art medical services with compassionate care</p>
-    </div>
-    <div class="services-grid">
+    <div class="about-inner">
       
-	<div class="service-card">
-        <div class="service-icon"><i class="fas fa-microscope"></i></div>
-        <h3>Laboratory Services</h3>
-        <p>Advanced diagnostic testing with quick turnaround times and accurate results.</p>
-<a class="service-link learn-more" data-service="lab">
-  Learn More <i class="fas fa-arrow-right"></i>
-</a>
-    </div>
+      <div class="about-content">
+        <h2>About Our Medicine History</h2><br>
 
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-x-ray"></i></div>
-        <h3>Imaging & Radiology</h3>
-        <p>Cutting-edge imaging technology including MRI, CT scans, and X-rays.</p>
-<a class="service-link learn-more" data-service="imaging">
-  Learn More <i class="fas fa-arrow-right"></i>
-</a>
+        <p>
+          Established in 2005, our pharmaceutical manufacturing unit has been delivering
+          high-quality medicines and healthcare products for over 15 years. We are committed
+          to producing safe, effective, and affordable medicines using advanced technology
+          and strict quality control systems.
+        </p>
+
+        <div class="about-features">
+
+          <div class="feature">
+            <i class="fas fa-certificate"></i>
+            <div>
+              <h4>Certified Manufacturing</h4>
+              <p>WHO & GMP certified production facility</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <i class="fas fa-flask"></i>
+            <div>
+              <h4>Research & Development</h4>
+              <p>Advanced laboratories for testing and innovation</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <i class="fas fa-industry"></i>
+            <div>
+              <h4>Modern Infrastructure</h4>
+              <p>Automated machinery and hygienic production lines</p>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-procedures"></i></div>
-        <h3>Surgical Procedures</h3>
-        <p>Minimally invasive and traditional surgical procedures with expert surgeons.</p>
-        <!-- <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a> -->
-<a class="service-link learn-more" data-service="surgery">
-  Learn More <i class="fas fa-arrow-right"></i>
-</a>
+
+      <div class="about-image">
+        <img src="images/download (12).jpeg"
+             alt="Medical Manufacturing Unit">
       </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-pills"></i></div>
-        <h3>Pharmacy Services</h3>
-        <p>Full-service pharmacy with prescription medications and health consultations.</p>
-        <!-- <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a> -->
-<a class="service-link learn-more" data-service="pharmacy">
-  Learn More <i class="fas fa-arrow-right"></i>
-</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-baby"></i></div>
-        <h3>Maternity Care</h3>
-        <p>Comprehensive prenatal, delivery, and postnatal care for mothers and babies.</p>
-        <!-- <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a> -->
-<a class="service-link learn-more" data-service="maternity">
-  Learn More <i class="fas fa-arrow-right"></i>
-</a>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="fas fa-heartbeat"></i></div>
-        <h3>Emergency Care</h3>
-        <p>24/7 emergency medical services with rapid response and critical care.</p>
-        <!-- <a href="#" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a> -->
-<a class="service-link learn-more" data-service="emergency">
-  Learn More <i class="fas fa-arrow-right"></i>
-</a>
-      </div>
+
     </div>
   </div>
 </section>
 
-  <!-- Overlay -->
-  <div class="overlay" id="overlay" onclick="closePanel()"></div>
-
-  <!-- Right Slide Panel -->
-  <div class="panel" id="infoPanel">
-    <div class="panel-header">
-      <h3 id="panelTitle"></h3>
-      <button class="close-btn" onclick="closePanel()">✖</button>
+<!-- Medicine Section -->
+<section class="medicines" id="medicines">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Medicines</h2>
+      <p class="subtle">Explore our range of healthcare products and supplements</p>
     </div>
-    <img id="panelImage" src="" alt="">
-    <p id="panelContent"></p>
+
+    <div class="medicine-cards">
+
+      <!-- Medicine Item 1 -->
+      <a href="404.html" class="medicine-link">
+        <div class="medicine-item">
+          <img src="images/capsule.jpeg" alt="Tablets & Capsules">
+          <div class="medicine-content">
+            <h3>Tablets & Capsules</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam cumque expedita eaque recusandae mollitia deserunt dolore corporis commodi possimus debitis!</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Medicine Item 2 -->
+      <a href="404.html" class="medicine-link">
+        <div class="medicine-item">
+          <img src="images/syrup.jpeg" alt="Mixtures & Syrups">
+          <div class="medicine-content">
+            <h3>Mixtures & Syrups</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor, hic illum. Accusantium quo iure eaque incidunt veniam culpa consequuntur porro.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Medicine Item 3 -->
+      <a href="404.html" class="medicine-link">
+        <div class="medicine-item">
+          <img src="images/tablet.jpeg" alt="Dietary Supplements">
+          <div class="medicine-content">
+            <h3>Dietary Supplements</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur architecto unde temporibus! Vero molestias unde possimus nisi libero, eius quidem.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Medicine Item 4 -->
+      <a href="404.html" class="medicine-link">
+        <div class="medicine-item">
+          <img src="images/Injection.jpeg" alt="Injections & Drops">
+          <div class="medicine-content">
+            <h3>Injections & Drops</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eligendi omnis perferendis temporibus tempore a suscipit, nihil unde sit odit?</p>
+          </div>
+        </div>
+      </a>
+
+    </div>
   </div>
+</section>
 
-	<section class="doctors" id="doctors">
-		<div class="container">
-			<div class="section-header">
-				<h2>Our Expert Doctors</h2>
-				<p class="subtle">Meet our team of highly qualified and experienced medical professionals</p>
-			</div>
-			<div class="doctors-grid">
-				<div class="doctor-card">
-					<div class="doctor-image">
-						<img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=300&h=300&fit=crop&crop=face" alt="Dr. Sarah Johnson">
-					</div>
-					<div class="doctor-info">
-						<h3>Dr. Sarah Johnson</h3>
-						<p class="specialty">Cardiologist</p>
-						<p class="experience">15+ years experience</p>
-						<div class="doctor-stats">
-							<span><i class="fas fa-star"></i> 4.9</span>
-							<span><i class="fas fa-user"></i> 1200+ patients</span>
-						</div>
-						<div class="card-footer">
-    						<button class="btn-outline" onclick="window.location.href='404page.html'">Book Appointment</button>
-  						</div>
-					</div>
-				</div>
-				<div class="doctor-card">
-					<div class="doctor-image">
-						<img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300&h=300&fit=crop&crop=face" alt="Dr. Michael Chen">
-					</div>
-					<div class="doctor-info">
-						<h3>Dr. Michael Chen</h3>
-						<p class="specialty">Neurologist</p>
-						<p class="experience">12+ years experience</p>
-						<div class="doctor-stats">
-							<span><i class="fas fa-star"></i> 4.8</span>
-							<span><i class="fas fa-user"></i> 980+ patients</span>
-						</div>
-						<div class="card-footer">
-    						<button class="btn-outline" onclick="window.location.href='404page.html'">Book Appointment</button>
-  						</div>
-					</div>
-				</div>
-				<div class="doctor-card">
-					<div class="doctor-image">
-						<img src="https://media.istockphoto.com/id/512294804/photo/young-woman-hispanic-doctor-nurse-in-office.jpg?s=2048x2048&w=is&k=20&c=2-HATamwMIP3uXQ2eUKckU21AKG7euQsOtBlK3phV9Y=" alt="Dr. Emily Rodriguez">					</div>
-					<div class="doctor-info">
-						<h3>Dr. Emily Rodriguez</h3>
-						<p class="specialty">Pediatrician</p>
-						<p class="experience">10+ years experience</p>
-						<div class="doctor-stats">
-							<span><i class="fas fa-star"></i> 4.9</span>
-							<span><i class="fas fa-user"></i> 1500+ patients</span>
-						</div>
-						<div class="card-footer">
-    						<button class="btn-outline" onclick="window.location.href='404page.html'">Book Appointment</button>
-  						</div>
-					</div>
-				</div>
-				<div class="doctor-card">
-					<div class="doctor-image">
-						<img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=300&h=300&fit=crop&crop=face" alt="Dr. David Kim">
-					</div>
-					<div class="doctor-info">
-						<h3>Dr. David Kim</h3>
-						<p class="specialty">Orthopedic Surgeon</p>
-						<p class="experience">18+ years experience</p>
-						<div class="doctor-stats">
-							<span><i class="fas fa-star"></i> 4.7</span>
-							<span><i class="fas fa-user"></i> 800+ patients</span>
-						</div>
-						<div class="card-footer">
-    						<button class="btn-outline" onclick="window.location.href='404page.html'">Book Appointment</button>
-  						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="about" id="about">
-		<div class="container">
-			<div class="about-inner">
-				<div class="about-content">
-					<h2>About General Care Hospital</h2><br>
-					<p>Founded in 1995, General Care Specialist Hospital has been at the forefront of medical excellence for over 25 years. We are committed to providing the highest quality healthcare services with compassion, innovation, and patient-centered care.</p>
-					
-					<div class="about-features">
-						<div class="feature">
-							<i class="fas fa-award"></i>
-							<div>
-								<h4>Accredited Excellence</h4>
-								<p>JCI accredited hospital with international standards</p>
-							</div>
-						</div>
-						<div class="feature">
-							<i class="fas fa-users"></i>
-							<div>
-								<h4>Expert Team</h4>
-								<p>Board-certified specialists with decades of experience</p>
-							</div>
-						</div>
-						<div class="feature">
-							<i class="fas fa-cog"></i>
-							<div>
-								<h4>Modern Technology</h4>
-								<p>State-of-the-art medical equipment and facilities</p>
-							</div>
-						</div>
-					</div>
-					<button type="button" onclick="window.location.href='about1.html'">Get more info</button>
-				</div>
-				<div class="about-image">
-					<img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=500&h=400&fit=crop" alt="Hospital Building">
-				</div>
-			</div>
-		</div>
-	</section>
 
 	<section class="contact" id="contact">
 		<div class="container">
@@ -1228,21 +1026,18 @@
 					<h4>Quick Links</h4>
 					<ul>
 						<li><a href="#home">Home</a></li>
-						<li><a href="#services">Services</a></li>
-						<li><a href="#doctors">Doctors</a></li>
-						<li><a href="#about">About Us</a></li>
+						<li><a href="#services">About</a></li>
+						<li><a href="#doctors">Our Medicines</a></li>
 						<li><a href="#contact">Contact</a></li>
-            <li><a href="login.html">Login</a></li>
 					</ul>
 				</div>
 				<div class="footer-section">
-					<h4>Services</h4>
+					<h4>Our Medicines</h4>
 					<ul>
-						<li><a href="404page.html">Emergency Care</a></li>
-						<li><a href="404page.html">Surgery</a></li>
-						<li><a href="404page.html">Laboratory</a></li>
-						<li><a href="404page.html">Radiology</a></li>
-						<li><a href="404page.html">Pharmacy</a></li>
+						<li><a href="404page.html">Tablets</a></li>
+						<li><a href="404page.html">Syrups</a></li>
+						<li><a href="404page.html">Supplements</a></li>
+						<li><a href="404page.html">Injections</a></li>
 					</ul>
 				</div>
 				<div class="footer-section">
@@ -1525,7 +1320,6 @@ function toggleDropdown(el) {
 function toggleMobileMenu() {
   document.getElementById("mobileMenu").classList.toggle("show");
 }
-
 </script>
 </body>
 </html>
