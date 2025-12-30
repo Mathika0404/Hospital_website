@@ -374,6 +374,74 @@
     padding: 0;
 }
 
+/* ===== FIX ABOUT IMAGE VISIBILITY ===== */
+.about-image,
+.about-image img {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.about-inner {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-content,
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 90%;
+  height: 550px;
+  border-radius: 20px;
+}
+
+/* ==============================
+   MEDICINES FLIP-UP ANIMATION
+============================== */
+
+/* Perspective for 3D effect */
+.medicine-cards {
+  perspective: 1200px;
+}
+
+/* Base state (hidden) */
+.medicine-item {
+  opacity: 0;
+  transform: rotateX(90deg) translateY(40px);
+  transform-origin: bottom;
+  transition: transform 1.3s ease-in-out, opacity 1s ease-in-out;
+  will-change: transform, opacity;
+}
+
+/* Visible state (on load) */
+.medicine-item {
+  animation: medicineFlipUp 1.3s ease-in-out forwards;
+}
+
+/* Stagger effect */
+.medicine-link:nth-child(1) .medicine-item { animation-delay: 0.1s; }
+.medicine-link:nth-child(2) .medicine-item { animation-delay: 0.25s; }
+.medicine-link:nth-child(3) .medicine-item { animation-delay: 0.4s; }
+.medicine-link:nth-child(4) .medicine-item { animation-delay: 0.55s; }
+
+@keyframes medicineFlipUp {
+  0% {
+    opacity: 0;
+    transform: rotateX(90deg) translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg) translateY(0);
+  }
+}
+
 </style>
 </head>
 
@@ -706,6 +774,30 @@
 .go-home-btn:hover .arrow {
   transform: translateX(-6px); /* reverse animation */
 }
+
+/* ===== HERO H2 FLIP-UP ===== */
+.hero-copy {
+  perspective: 1200px;
+}
+
+.flip-up-text {
+  opacity: 0;
+  transform-origin: bottom;
+  animation: heroFlipUp 1.6s ease-in-out forwards;
+}
+
+@keyframes heroFlipUp {
+  0% {
+    opacity: 0;
+    transform: rotateX(90deg) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg) translateY(0);
+  }
+}
+
+
 </style>
 
 
@@ -713,7 +805,7 @@
 <section class="hero" id="home">
   <div class="container hero-inner">
     <div class="hero-copy">
-      <h2>Trusted Medicines for a Healthier Life</h2>
+      <h2 class="flip-up-text">Trusted Medicines for a Healthier Life</h2>
       <p>
         Discover premium-quality medicines and supplements designed to
         support your health and wellness. We offer certified pharmaceutical
@@ -734,7 +826,11 @@
 
     <div class="hero-visual">
       <div class="blob"></div>
-      <img src="images/medicines.jpeg" alt="Medical Products" class="doctor-img" style="width: 350px;" height="auto">
+<img src="images/medicines.jpeg"
+     alt="Medical Products"
+     class="doctor-img slide-from-right"
+     style="width: 350px;"
+     height="auto">
 
       <div class="floating-card">
         <div class="card-icon">
@@ -825,55 +921,60 @@
 <section class="about" id="about">
   <div class="container">
     <div class="about-inner">
-      
+
       <div class="about-content">
         <h2>About Our Medicine History</h2><br>
 
         <p>
-          Established in 2005, our pharmaceutical manufacturing unit has been delivering
-          high-quality medicines and healthcare products for over 15 years. We are committed
-          to producing safe, effective, and affordable medicines using advanced technology
-          and strict quality control systems.
+          Established in 2005, our pharmaceutical journey began with a strong vision to
+          deliver safe, effective, and affordable medicines. Over the years, we have grown
+          into a trusted healthcare partner, producing high-quality medicines that meet
+          international standards and improve lives worldwide.
         </p>
 
         <div class="about-features">
-
           <div class="feature">
             <i class="fas fa-certificate"></i>
             <div>
-              <h4>Certified Manufacturing</h4>
-              <p>WHO & GMP certified production facility</p>
+              <h4>Certified Quality</h4>
+              <p>WHO & GMP certified manufacturing processes</p>
             </div>
           </div>
 
           <div class="feature">
             <i class="fas fa-flask"></i>
             <div>
-              <h4>Research & Development</h4>
-              <p>Advanced laboratories for testing and innovation</p>
+              <h4>Research & Innovation</h4>
+              <p>Advanced R&D labs for continuous medicine development</p>
             </div>
           </div>
 
           <div class="feature">
             <i class="fas fa-industry"></i>
             <div>
-              <h4>Modern Infrastructure</h4>
-              <p>Automated machinery and hygienic production lines</p>
+              <h4>Modern Production</h4>
+              <p>Automated facilities ensuring precision and safety</p>
             </div>
           </div>
-
         </div>
 
+        <button type="button" onclick="window.location.href='about1.html'">
+          Get more info
+        </button>
       </div>
 
       <div class="about-image">
-        <img src="images/download (12).jpeg"
-             alt="Medical Manufacturing Unit">
+        <img 
+          src="images/about_medicine.jpeg"
+          alt="Pharmaceutical Manufacturing and Medicines">
       </div>
 
     </div>
   </div>
 </section>
+
+
+
 
 <!-- Medicine Section -->
 <section class="medicines" id="medicines">
@@ -1319,6 +1420,21 @@ function toggleDropdown(el) {
 
 function toggleMobileMenu() {
   document.getElementById("mobileMenu").classList.toggle("show");
+}
+
+const stats = document.querySelectorAll('.stat');
+
+if (stats.length) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('flip-up');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  stats.forEach(stat => observer.observe(stat));
 }
 </script>
 </body>

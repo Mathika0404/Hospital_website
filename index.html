@@ -373,6 +373,8 @@
     font-size: 14px;
     padding: 0;
 }
+
+
 </style>
 </head>
 
@@ -755,13 +757,77 @@
 .go-home-btn:hover .arrow {
   transform: translateX(-6px); /* reverse animation */
 }
+
+.hero-copy h2 {
+  opacity: 0;
+  transform: rotateX(90deg);
+  transform-origin: bottom;
+  animation: flipUp 5s ease forwards;
+}
+
+@keyframes flipUp {
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+
+.doctor-img {
+  opacity: 0;
+  transform: translateX(120px);
+  animation: doctorSlideIn 3.8s ease-out forwards;
+}
+
+@keyframes doctorSlideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Stats section animation */
+.stat {
+  opacity: 0;
+  transform: translateX(-80px);
+  animation: slideFromLeft 4s ease-out forwards;
+}
+
+/* Stagger effect for each stat */
+.stat:nth-child(1) { animation-delay: 0.1s; }
+.stat:nth-child(2) { animation-delay: 0.3s; }
+.stat:nth-child(3) { animation-delay: 0.5s; }
+.stat:nth-child(4) { animation-delay: 0.7s; }
+
+@keyframes slideFromLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.dept-icon i {
+  animation: iconPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0% {
+    transform: scale(0.9);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+
 </style>
 
 
 	<section class="hero" id="home">
 		<div class="container hero-inner">
 			<div class="hero-copy">
-				<h2>Premium Treatments for a Healthy Lifestyle</h2>
+				<h2 >Premium Treatments for a Healthy Lifestyle</h2>
 				<p>
 					Experience world-class healthcare with our team of expert specialists. We provide comprehensive medical services with cutting-edge technology and compassionate care for you and your family.
 				</p>
@@ -859,7 +925,7 @@
 					<option>Dr. Emily Rodriguez</option>
 					<option>Dr. David Kim</option>
 				</select>
-				<input type="date" />
+				<input type="date"/>
 				<select>
 					<option selected>Select Location</option>
 					<option>Main Campus</option>
@@ -1526,6 +1592,35 @@ function toggleMobileMenu() {
   document.getElementById("mobileMenu").classList.toggle("show");
 }
 
+  const serviceCards = document.querySelectorAll('.service-card');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('flip-lr');
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  serviceCards.forEach(card => observer.observe(card));
+
+const aboutImg = document.querySelector('.about-image img');
+
+if (aboutImg) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('flip-up');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(aboutImg);
+}
 </script>
 </body>
 </html>

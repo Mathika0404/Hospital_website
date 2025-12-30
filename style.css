@@ -422,6 +422,75 @@ border-radius: 50px;
 	color: var(--muted);
 }
 
+@media (max-width: 360px) {
+  .btn.btn-dark {
+    display: block;
+    margin: 10px auto;   /* centers horizontally */
+    text-align: center;
+  }
+
+    .btn-outline {
+    display: block;
+    margin: 12px auto;   /* centers the button */
+    text-align: center;
+  }
+
+  button[onclick*="about1.html"] {
+    display: block;
+    margin: 12px auto;   /* centers horizontally */
+    text-align: center;
+  }
+
+    button[type="submit"] {
+    display: block;
+    margin: 12px auto;   /* centers horizontally */
+    text-align: center;
+  }
+}
+
+/* ===== IMAGE SLIDE FROM RIGHT ===== */
+.slide-from-right {
+  opacity: 0;
+  transform: translateX(80px);
+  animation: slideRight 4s ease-in-out forwards;
+}
+
+@keyframes slideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(80px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ===== STATS FLIP-UP ANIMATION ===== */
+.stats {
+  perspective: 1400px;
+}
+
+.stat {
+  opacity: 0;
+  transform: rotateX(90deg) translateY(30px);
+  transform-origin: bottom;
+  transition: transform 4s ease-in-out, opacity 1.2s ease-in-out;
+  will-change: transform, opacity;
+}
+
+/* Visible state */
+.stat.flip-up {
+  opacity: 1;
+  transform: rotateX(0deg) translateY(0);
+}
+
+/* Stagger effect */
+.stat:nth-child(1) { transition-delay: 0.1s; }
+.stat:nth-child(2) { transition-delay: 0.25s; }
+.stat:nth-child(3) { transition-delay: 0.4s; }
+.stat:nth-child(4) { transition-delay: 0.55s; }
+
 .btn-dark{
 	background:#0b2239;
 	color:#fff;
@@ -518,18 +587,40 @@ border-radius: 50px;
 
 /* Finder */
 .finder{ padding: 18px 0 10px; }
-.finder-header{
-	text-align: center;
-	margin-bottom: 24px;
+.finder-bar {
+  display: flex;
+  align-items: center;   /* ✅ keeps all items straight */
+  gap: 15px;
+  flex-wrap: wrap;       /* responsive */
 }
+
+.finder-bar select,
+.finder-bar input[type="date"],
+.finder-bar button {
+  height: 52px;          /* ✅ same height */
+  padding: 0 15px;
+  border-radius: 12px;
+  font-size: 16px;
+}
+
+/* Optional: make button align perfectly */
+.finder-bar button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .finder-header h2{
 	margin: 0 0 8px;
 	font-size: 28px;
 	color: var(--ink);
+	text-align: center;
 }
 .finder-header p{
 	margin: 0;
 	color: var(--muted);
+	text-align: center;
+	margin-bottom: 40px;
 }
 .finder-bar {
 	display: grid;
@@ -617,6 +708,8 @@ border-radius: 50px;
   text-align: center;
   font-weight: 400;
 }
+
+
 
 /* Services */
 .services{
@@ -852,14 +945,8 @@ border-radius: 50px;
 	color: var(--muted);
 	font-size: 14px;
 }
-.about-image img{
-	width: 100%;
-	height: 550px;
-	border-radius: var(--radius-lg);
-	box-shadow: var(--shadow-2);
-	margin-top: 20px;
-	/* margin-left: 200px; */
-}
+
+
 
 button{
 	background: #99D4E9;
@@ -1094,6 +1181,11 @@ button:hover {
     width: 80%;          /* Smaller popup */
   }
 
+  .btn-dark {
+    margin-left: auto;   /* ✅ moves button to right */
+    margin-right: 0;
+    display: block;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1102,12 +1194,67 @@ button:hover {
     border-radius: 8px;
   }
 
+    .btn-dark {
+    margin-left: auto;   /* ✅ still aligned */
+    margin-right: 0;
+  }
 
   .form-popup input,
   .form-popup button {
     font-size: 14px;     /* Compress inputs/buttons */
     padding: 8px 10px;
   }
+}
+
+/* ===== FLIP UP FROM LEFT TO RIGHT ===== */
+.services-grid {
+  perspective: 1400px;
+}
+
+.service-card {
+  opacity: 0;
+  transform:
+    rotateX(90deg)
+    translateX(-80px)
+    translateY(40px);
+  transform-origin: bottom left;
+transition: transform 3s ease-in-out, opacity 2s ease-in-out;
+  will-change: transform, opacity;
+}
+
+/* Visible state */
+.service-card.flip-lr {
+  opacity: 1;
+  transform:
+    rotateX(0deg)
+    translateX(0)
+    translateY(0);
+}
+
+.service-card:nth-child(1) { transition-delay: 0.1s; }
+.service-card:nth-child(2) { transition-delay: 0.2s; }
+.service-card:nth-child(3) { transition-delay: 0.3s; }
+.service-card:nth-child(4) { transition-delay: 0.4s; }
+.service-card:nth-child(5) { transition-delay: 0.5s; }
+.service-card:nth-child(6) { transition-delay: 0.6s; }
+
+/* ===== ABOUT IMAGE FLIP-UP ===== */
+.about-image {
+  perspective: 1200px;
+}
+
+.about-image img {
+  opacity: 0;
+  transform: rotateX(90deg) translateY(40px);
+  transform-origin: bottom;
+  transition: transform 1.8s ease-in-out, opacity 1.2s ease-in-out;
+  will-change: transform, opacity;
+}
+
+/* Visible state */
+.about-image img.flip-up {
+  opacity: 1;
+  transform: rotateX(0deg) translateY(0);
 }
 
 
