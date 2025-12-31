@@ -1,0 +1,1447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>General Care Specialist Hospital</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="checkstyle.css">
+  <!-- <link rel="stylesheet" href="index2.css"> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- ✅ SINGLE STYLE BLOCK -->
+<style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* -------- Panel -------- */
+.panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 380px;
+  height: 100%;
+  background: linear-gradient(135deg, #e0f2fe, #ffe4e1);
+  padding: 20px;
+  transition: right 0.4s ease;
+  z-index: 1200;
+  overflow-y: auto;
+}
+.panel.open { right: 0; }
+
+.panel img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+/* -------- Overlay -------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  display: none;
+  z-index: 1100;
+}
+.overlay.show { display: block; }
+
+/* -------- Close Button -------- */
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: #f97316;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.close-btn:hover { background: #ea580c; }
+
+/* Dropdown Base */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: #fff;
+  padding: 10px 0;
+  border-radius: 8px;
+  min-width: 150px;
+  top: 100%;
+  left: 0;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  background: #f1f1f1;
+}
+
+/* Arrow Styling */
+.arrow-btn {
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 14px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Home + Arrow container */
+.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Remove gap between Home & arrow */
+.dropdown-toggle .home-link {
+  margin-right: 3px;
+  color: black;
+  text-decoration: none;
+}
+
+/* Arrow */
+.arrow-btn {
+  font-size: 14px;
+  margin-left: 0;
+}
+
+/* Dropdown list */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: white;
+  padding: 10px 0;
+  border-radius: 8px;
+  min-width: 150px;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  background: #f1f1f1;
+}
+
+/* DROPDOWN BASE */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.dropdown-toggle .home-link {
+  padding: 6px 4px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #111;
+}
+
+.arrow-btn {
+  background: none;
+  border: none;
+  font-size: 14px;
+  padding: 6px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* DROPDOWN MENU */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: white;
+  padding: 8px 0;
+  border-radius: 8px;
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu li {
+  list-style: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 10px 14px;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown-menu li a:hover {
+  background: #f1f1f1;
+}
+
+/* SIDEBAR DROPDOWN */
+.sidebar .dropdown {
+  display: block;
+}
+
+.sidebar .dropdown-toggle {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.sidebar .dropdown-menu {
+  position: static;
+  box-shadow: none;
+  border: 1px solid #eee;
+  padding: 6px;
+  margin-top: 5px;
+}
+
+/* DESKTOP NAV */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* DROPDOWN FIX */
+.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.dropdown-toggle .home-link {
+  font-weight: 600;
+  text-decoration: none;
+  color: #111;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: white;
+  list-style: none;
+  padding: 10px 0;
+  min-width: 150px;
+  top: calc(100% + 5px);
+  left: 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: white;
+  padding: 20px;
+  gap: 10px;
+  border-top: 1px solid #eee;
+}
+
+.hamburger {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .navbar-menu { display: none; }
+  .hamburger { display: block; }
+
+  .mobile-menu.show { display: flex; }
+
+  .mobile-dropdown .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    padding-left: 15px;
+    border-left: 2px solid #ddd;
+  }
+}
+
+/* FIX NAV LINK COLORS */
+.navbar-menu li a,
+.mobile-menu li a {
+  text-decoration: none !important;
+  color: #111 !important;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Hover effect (optional) */
+.navbar-menu li a:hover,
+.mobile-menu li a:hover {
+  color: #0077b6 !important;
+}
+
+/* Active/visited fix */
+.navbar-menu li a:visited,
+.mobile-menu li a:visited {
+  color: #111 !important;
+  text-decoration: none !important;
+}
+
+
+.navbar-menu li a,
+.mobile-menu li a {
+  color: #111;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 6px 4px;
+}
+
+/* FIX NAV SIZES + REMOVE DOTS */
+
+/* Remove dot/bullet from ALL nav list items */
+.navbar-menu li,
+.mobile-menu li {
+    list-style: none !important;
+}
+
+/* Make all nav links same size & style */
+.navbar-menu li a,
+.mobile-menu li a,
+.dropdown-toggle .home-link {
+    color: #111 !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;   /* SAME SIZE for all */
+    text-decoration: none !important;
+    padding: 6px 4px;
+}
+
+/* Remove extra gap near Home arrow */
+.dropdown-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.arrow-btn {
+    font-size: 14px;
+    padding: 0;
+}
+
+/* ===== FIX ABOUT IMAGE VISIBILITY ===== */
+.about-image,
+.about-image img {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+.about-inner {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-content,
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 90%;
+  height: 550px;
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 360px) {
+  .medicine-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+
+    <!-- BRAND -->
+    <div class="brand">
+      <div class="logo">
+        <a href="index2.html">
+    <img src="./stacklylogo.png" alt="stacklylogo">
+  </a>
+      </div>
+    </div>
+
+    <!-- MOBILE HAMBURGER (VISIBLE ONLY ON MOBILE) -->
+    <div class="hamburger" onclick="toggleMobileMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- DESKTOP MENU -->
+    <ul class="navbar-menu" id="desktopMenu">
+
+      <!-- DESKTOP DROPDOWN -->
+      <li class="dropdown">
+        <div class="dropdown-toggle" onclick="toggleDropdown(this)">
+          <span class="home-link">Home</span>
+          <i class="fas fa-chevron-down arrow-btn"></i>
+        </div>
+
+        <ul class="dropdown-menu">
+          <li><a href="index.html">Home 1</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#medicines">Our Medicines</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+
+    </ul>
+
+  </div>
+
+  <!-- MOBILE MENU DROPDOWN -->
+  <ul class="mobile-menu" id="mobileMenu">
+
+    <!-- MOBILE DROPDOWN -->
+    <li class="dropdown mobile-dropdown">
+      <div class="dropdown-toggle" onclick="toggleDropdown(this)">
+        <span class="home-link">Home</span>
+        <i class="fas fa-chevron-down arrow-btn"></i>
+      </div>
+
+      <ul class="dropdown-menu">
+        <li><a href="index.html">Home 1</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#medicines">Our Medicines</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+
+</header>
+  <style>
+    /* ---------- Global ---------- */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f0f2f5;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+
+
+	 .section-header {
+      text-align: center;
+      padding: 40px 20px 20px;
+	  
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+      color: #0c4a6e;
+    }
+    .section-header .subtle {
+      color: #555;
+      font-size: 1rem;
+    }
+
+
+
+    /* Right Slide Panel */
+    .panel {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 400px;
+      max-width: 90%;
+      height: 100%;
+      background: linear-gradient(135deg, #e0f2fe, #ffe4e1);
+      box-shadow: -4px 0 20px rgba(0,0,0,0.2);
+      padding: 20px;
+      transition: right 0.5s ease;
+      z-index: 1001;
+      overflow-y: auto;
+    }
+    .panel.open {
+      right: 0;
+    }
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .panel-header h3 {
+      margin: 0;
+      color: #0c4a6e;
+    }
+    .close-btn {
+      background: #f97316;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .close-btn:hover {
+      background: #ea580c;
+    }
+    .panel img {
+      width: 100%;
+      border-radius: 12px;
+      margin: 15px 0;
+      max-height: 200px;
+      object-fit: cover;
+    }
+    .panel p {
+      color: #333;
+      line-height: 1.5;
+    }
+
+    /* Background overlay */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+    .overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+	#panelImage {
+  width: 100%;          /* take full width of panel */
+  max-height: 300px;    /* keep it short, so text fits */
+  object-fit: cover;    /* crops edges, keeps aspect ratio */
+  border-radius: 12px;  /* rounded corners */
+  margin: 15px 0;
+  display: block;
+  margin-top: 50px;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+ }
+
+ /* Slide Panel */
+.info-panel {
+  position: fixed;
+  top: 0;
+  right: -100%; /* hidden by default */
+  width: 400px;
+  height: 100%;
+  background: linear-gradient(135deg, #ffe5d9, #cce7ff); /* peach-blue theme */
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: right 0.4s ease-in-out;
+  z-index: 999;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-panel.open {
+  right: 0; /* slide in when open */
+}
+
+.info-panel img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+
+  </style>
+</head>
+<style>
+/* -------------------------
+   Navbar Responsive Toggle
+------------------------- */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #ffffff;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  #mobileMenuBtn {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #2c3e50;
+  }
+}
+
+/* -------------------------
+   Service Panel Styling
+------------------------- */
+.panel {
+  position: fixed;
+  right: -400px;
+  top: 0;
+  width: 350px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+  padding: 20px;
+  transition: right 0.4s ease;
+  z-index: 1200;
+  overflow-y: auto;
+}
+
+.panel.open {
+  right: 0;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  z-index: 1100;
+}
+
+.overlay.show {
+  display: block;
+}
+
+.panel img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+/* -------------------------
+   Close Button
+------------------------- */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  font-size: 1.3rem;
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+  background: #c0392b;
+}
+
+/* -------------------------
+   Go Home Button (Reverse Arrow)
+------------------------- */
+.go-home-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: #3498db;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.go-home-btn:hover {
+  background: #2980b9;
+}
+
+.go-home-btn .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.go-home-btn:hover .arrow {
+  transform: translateX(-6px); /* reverse animation */
+}
+
+/* ===== HERO H2 FLIP-UP ===== */
+.hero-copy {
+  perspective: 1200px;
+}
+
+.flip-up-text {
+  opacity: 0;
+  transform-origin: bottom;
+  animation: heroFlipUp 1.6s ease-in-out forwards;
+}
+
+@keyframes heroFlipUp {
+  0% {
+    opacity: 0;
+    transform: rotateX(90deg) translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg) translateY(0);
+  }
+}
+
+/* 📱 Extra Small Devices (360px and below) */
+@media screen and (max-width: 360px) {
+
+  .about-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-content {
+    text-align: left;
+  }
+
+  .about-image {
+    order: 2;              /* image goes below content */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .about-content button {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .about-features {
+    gap: 15px;
+  }
+
+  .feature {
+    align-items: flex-start;
+  }
+}
+
+</style>
+
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <h2 class="flip-up-text">Trusted Medicines for a Healthier Life</h2>
+      <p>
+        Discover premium-quality medicines and supplements designed to
+        support your health and wellness. We offer certified pharmaceutical
+        products with guaranteed safety and effectiveness.
+      </p>
+
+      <div class="cta-row">
+        <a href="#medicines" class="btn btn-primary">
+          <i class="fas fa-pills"></i>
+          Our Supplements
+        </a>
+        <div class="online-chip">
+          <span class="dot"></span> 
+          1500+ Products Available
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="blob"></div>
+<img src="images/medicines.jpeg"
+     alt="Medical Products"
+     class="doctor-img slide-from-right"
+     style="width: 350px;"
+     height="auto">
+
+      <div class="floating-card">
+        <div class="card-icon">
+          <i class="fas fa-capsules"></i>
+        </div>
+        <div class="card-content">
+          <div class="card-title">Certified Quality Medicines</div>
+          <div class="card-subtitle">100% Genuine Products</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDICINE STATS SECTION -->
+<section class="stats">
+  <div class="container stat-grid">
+
+    <div class="stat">
+      <div class="stat-icon">
+        <i class="fas fa-pills"></i>
+      </div>
+      <div class="stat-value">3000+</div>
+      <div class="stat-label">Medicines Available</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">
+        <i class="fas fa-prescription-bottle-alt"></i>
+      </div>
+      <div class="stat-value">500+</div>
+      <div class="stat-label">Supplements</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">
+        <i class="fas fa-truck"></i>
+      </div>
+      <div class="stat-value">24 Hrs</div>
+      <div class="stat-label">Fast Delivery</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <div class="stat-value">100%</div>
+      <div class="stat-label">Quality Assured</div>
+    </div>
+
+  </div>
+</section>
+
+
+	<section class="stats">
+		<div class="container stat-grid">
+			<div class="stat">
+				<div class="stat-icon">
+					<i class="fas fa-smile"></i>
+				</div>
+				<div class="stat-value">4500+</div>
+				<div class="stat-label">Happy Patients</div>
+			</div>
+			<div class="stat">
+				<div class="stat-icon">
+					<i class="fas fa-bed"></i>
+				</div>
+				<div class="stat-value">200</div>
+				<div class="stat-label">Hospital Rooms</div>
+			</div>
+			<div class="stat">
+				<div class="stat-icon">
+					<i class="fas fa-trophy"></i>
+				</div>
+				<div class="stat-value">500+</div>
+				<div class="stat-label">Awards Won</div>
+			</div>
+			<div class="stat">
+				<div class="stat-icon">
+					<i class="fas fa-ambulance"></i>
+				</div>
+				<div class="stat-value">20+</div>
+				<div class="stat-label">Ambulances</div>
+			</div>
+		</div>
+	</section>
+
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-inner">
+
+      <div class="about-content">
+        <h2>About Our Medicine History</h2><br>
+
+        <p>
+          Established in 2005, our pharmaceutical journey began with a strong vision to
+          deliver safe, effective, and affordable medicines. Over the years, we have grown
+          into a trusted healthcare partner, producing high-quality medicines that meet
+          international standards and improve lives worldwide.
+        </p>
+
+        <div class="about-features">
+          <div class="feature">
+            <i class="fas fa-certificate"></i>
+            <div>
+              <h4>Certified Quality</h4>
+              <p>WHO & GMP certified manufacturing processes</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <i class="fas fa-flask"></i>
+            <div>
+              <h4>Research & Innovation</h4>
+              <p>Advanced R&D labs for continuous medicine development</p>
+            </div>
+          </div>
+
+          <div class="feature">
+            <i class="fas fa-industry"></i>
+            <div>
+              <h4>Modern Production</h4>
+              <p>Automated facilities ensuring precision and safety</p>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" onclick="window.location.href='404page.html'">
+          Get more info
+        </button>
+      </div>
+
+      <div class="about-image">
+        <img 
+          src="images/about_medicine.jpeg"
+          alt="Pharmaceutical Manufacturing and Medicines">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Medicine Section -->
+<section class="medicines" id="medicines">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Medicines</h2>
+      <p class="subtle">Explore our range of healthcare products and supplements</p>
+    </div>
+
+    <div class="medicine-cards">
+
+      <!-- Medicine Item 1 -->
+      <a href="404.html" class="medicine-link">
+        <div class="medicine-item">
+          <img src="images/capsule.jpeg" alt="Tablets & Capsules">
+          <div class="medicine-content">
+            <h3>Tablets & Capsules</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam cumque expedita eaque recusandae mollitia deserunt dolore corporis commodi possimus debitis!</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Medicine Item 2 -->
+      <a href="404.html" class="medicine-link">
+        <div class="medicine-item">
+          <img src="images/syrup.jpeg" alt="Mixtures & Syrups">
+          <div class="medicine-content">
+            <h3>Mixtures & Syrups</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor, hic illum. Accusantium quo iure eaque incidunt veniam culpa consequuntur porro.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Medicine Item 3 -->
+      <a href="404.html" class="medicine-link">
+        <div class="medicine-item">
+          <img src="images/tablet.jpeg" alt="Dietary Supplements">
+          <div class="medicine-content">
+            <h3>Dietary Supplements</h3>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur architecto unde temporibus! Vero molestias unde possimus nisi libero, eius quidem.</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Medicine Item 4 -->
+      <a href="404.html" class="medicine-link">
+        <div class="medicine-item">
+          <img src="images/Injection.jpeg" alt="Injections & Drops">
+          <div class="medicine-content">
+            <h3>Injections & Drops</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt eligendi omnis perferendis temporibus tempore a suscipit, nihil unde sit odit?</p>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+	<section class="contact" id="contact">
+		<div class="container">
+			<div class="section-header">
+				<h2>Contact Us</h2>
+				<p class="subtle">Get in touch with us for appointments, inquiries, or emergency care</p>
+			</div>
+			<div class="contact-inner">
+				<div class="contact-info">
+					<div class="contact-item">
+						<div class="contact-icon">
+							<i class="fas fa-map-marker-alt"></i>
+						</div>
+						<div>
+							<h4>Address</h4>
+							<p>123 Medical Center Drive<br>Healthcare District, HC 12345</p>
+						</div>
+					</div>
+					<div class="contact-item">
+						<div class="contact-icon">
+							<i class="fas fa-phone"></i>
+						</div>
+						<div>
+							<h4>Phone</h4>
+							<p>Emergency: (555) 123-4567<br>Appointments: (555) 987-6543</p>
+						</div>
+					</div>
+					<div class="contact-item">
+						<div class="contact-icon">
+							<i class="fas fa-envelope"></i>
+						</div>
+						<div>
+							<h4>Email</h4>
+							<p>info@generalcare.com<br>appointments@generalcare.com</p>
+						</div>
+					</div>
+					<div class="contact-item">
+						<div class="contact-icon">
+							<i class="fas fa-clock"></i>
+						</div>
+						<div>
+							<h4>Hours</h4>
+							<p>24/7 Emergency Care<br>Mon-Fri: 8AM-8PM<br>Sat-Sun: 9AM-6PM</p>
+						</div>
+					</div>
+				</div>
+				<div class="form-wrapper">
+<form id="contactForm">
+    <div class="input-box">
+        <input type="text" id="name" placeholder="Full Name"tabindex="0" required>
+        <input type="email" id="email" placeholder="Email" tabindex="0"required>
+    </div>
+    <div class="input-box">
+        <input type="text" id="address" placeholder="Address" tabindex="0"required>
+        <input type="text" id="location" placeholder="Location"tabindex="0" required>
+    </div>
+    <textarea id="description" placeholder="Describe Your Location in brief explanation" required></textarea>
+
+    <button type="submit"tabindex="0">SEND MESSAGE</button>
+</form>
+
+				</div>
+			</div>
+		</div> 
+	</section>
+	</main>
+
+
+	<footer class="footer">
+		<div class="container">
+			<div class="footer-inner">
+				<div class="footer-section">
+					<div class="brand">
+						<div class="brand-mark" aria-hidden="true">
+							<i class="fas fa-plus"></i>
+						</div>
+						<div class="brand-text">
+							<strong>General Care</strong>
+							<span>Specialist Hospital</span>
+						</div>
+					</div>
+					<p>Providing exceptional healthcare services with compassion and excellence since 1995.</p>
+					<div class="social-links">
+						<a href="404page.html"><i class="fab fa-facebook"></i></a>
+						<a href="404page.html"><i class="fab fa-twitter"></i></a>
+						<a href="404page.html"><i class="fab fa-linkedin"></i></a>
+						<a href="404page.html"><i class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+				<div class="footer-section">
+					<h4>Quick Links</h4>
+					<ul>
+						<li><a href="#home">Home</a></li>
+						<li><a href="#services">About</a></li>
+						<li><a href="#doctors">Our Medicines</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</div>
+				<div class="footer-section">
+					<h4>Our Medicines</h4>
+					<ul>
+						<li><a href="404page.html">Tablets</a></li>
+						<li><a href="404page.html">Syrups</a></li>
+						<li><a href="404page.html">Supplements</a></li>
+						<li><a href="404page.html">Injections</a></li>
+					</ul>
+				</div>
+				<div class="footer-section">
+					<h4>Contact Info</h4>
+					<div class="contact-info-footer">
+						<p><i class="fas fa-map-marker-alt"></i> 123 Medical Center Drive</p>
+						<p><i class="fas fa-phone"></i> (555) 123-4567</p>
+						<p><i class="fas fa-envelope"></i> info@generalcare.com</p>
+					</div>
+				</div>
+
+          <!-- ✅ Google Map Embed -->
+           <div class="footer-section">
+            <h4>Google Map</h4>
+              <div class="footer-map">
+    
+    <iframe 
+      src="https://www.google.com/maps?q=Chennai%20Tamilnadu&output=embed"
+      width="100%" 
+      height="200"
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy">
+    </iframe>
+  </div>
+           </div>
+			</div>
+			<div class="footer-bottom">
+				<p>&copy; <span id="currentYear"></span> Generalcare Specialist Hospital. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+	<script>
+  window.history.pushState(null, null, window.location.href);
+  window.addEventListener("popstate", function () {
+    window.history.pushState(null, null, window.location.href);
+    window.location.hash = "#home";
+  });
+</script>
+  <script>
+    const panel = document.getElementById('infoPanel');
+    const overlay = document.getElementById('overlay');
+    const panelTitle = document.getElementById('panelTitle');
+    const panelContent = document.getElementById('panelContent');
+    const panelImage = document.getElementById('panelImage');
+	
+
+const serviceInfo = {
+  lab: {
+    title: "Laboratory Services",
+    content: `
+✅ Comprehensive Testing: Blood tests, urine analysis, microbiology, histopathology, and genetic screenings.
+✅ Rapid Turnaround: Most test results available within hours for urgent cases.
+✅ Automated Systems: Cutting-edge machines to reduce human error and improve accuracy.
+✅ Specialized Panels: Heart health, liver function, kidney function, hormonal profiles, and cancer markers.
+✅ Preventive Health: Annual health check-up packages for early detection of chronic diseases.
+✅ Safety & Hygiene: Strict infection control, sterilization, and handling protocols.
+✅ Expert Consultation: Doctors and lab specialists available to interpret results and guide treatment.`,
+    image: "images/lab.jpg"   // local image path
+  },
+  imaging: {
+    title: "Imaging & Radiology",
+  content: `
+✅ X-Rays: Quick and effective imaging for bones, chest, and soft tissues.
+✅ Ultrasound: Safe, non-invasive imaging for abdominal, pelvic, pregnancy, and vascular assessments.
+✅ CT Scans (Computed Tomography): High-resolution cross-sectional images for detailed diagnosis of internal organs.
+✅ MRI (Magnetic Resonance Imaging): Advanced imaging of the brain, spine, joints, and soft tissues with high clarity.
+✅ Mammography: Specialized imaging for early detection of breast cancer.
+✅ Interventional Radiology: Minimally invasive, image-guided procedures such as biopsies and catheter placements.
+✅ Digital Reporting: Fast, accurate reports available electronically for seamless doctor–patient communication.`,
+    image: "images/imaging.jpg"
+  },
+  surgery: {
+    title: "Surgical Procedures",
+    content: `
+✅ General Surgery: Treatment of common conditions such as appendicitis, hernia, and gallbladder disorders.
+✅ Minimally Invasive Surgery: Laparoscopic and keyhole surgeries for faster recovery, less pain, and smaller scars.
+✅ Orthopedic Surgery: Specialized procedures for bone fractures, joint replacement, and spine corrections.
+✅ Cardiac Surgery: Advanced heart surgeries including bypass, valve repair, and stent placements.
+✅ Neurosurgery: Treatment for brain, spine, and nervous system disorders with precision techniques.
+✅ Plastic & Reconstructive Surgery: Restorative and cosmetic procedures to enhance function and appearance.
+✅ Post-Operative Care: Dedicated recovery units with close monitoring to ensure smooth healing.`,
+    image: "images/surgery.jpg"
+  },
+  pharmacy: {
+    title: "Pharmacy Services",
+    content: `
+✅ Prescription Dispensing: Accurate and fast dispensing of doctor-prescribed medicines.
+✅ Over-the-Counter (OTC) Medicines: A wide range of health essentials including pain relief, allergy, cold, and digestive care.
+✅ Medication Counseling: Expert guidance from licensed pharmacists on dosage, usage, and possible side effects.
+✅ Chronic Disease Support: Medication management for diabetes, hypertension, asthma, and heart disease.
+✅ Vaccinations & Preventive Care: Immunizations and preventive medicines to protect against common illnesses.
+✅ Health & Wellness Products: Vitamins, supplements, baby care, and personal health essentials.
+✅ 24/7 Availability: Round-the-clock pharmacy services for emergency needs.`,
+    image: "images/pharmacy.jpg"
+  },
+  maternity: {
+    title: "Maternity Care",
+    content: `
+✅ Prenatal Care: Regular checkups, screenings, and ultrasounds to monitor the health of both mother and baby.
+✅ High-Risk Pregnancy Management: Specialized care for conditions such as gestational diabetes, hypertension, or multiple pregnancies.
+✅ Labor & Delivery: Comfortable, safe birthing suites with experienced obstetricians and midwives.
+✅ Cesarean Section (C-Section): Expert surgical care when required for safe delivery.
+✅ Postnatal Care: Support for new mothers including wound care, breastfeeding assistance, and recovery monitoring.
+✅ Newborn Care: Immediate neonatal care, immunizations, and developmental monitoring.
+✅ Parenting & Nutrition Counseling: Guidance for mothers and families on baby care, diet, and overall wellbeing.`,
+    image: "images/maternity.jpg"
+  },
+  emergency: {
+    title: "Emergency Care",
+    content: `
+✅ 24/7 Availability: Immediate care for accidents, sudden illnesses, and life-threatening emergencies.
+✅ Trauma & Accident Care: Advanced treatment for injuries caused by road accidents, falls, or other trauma.
+✅ Cardiac Emergencies: Rapid response for heart attacks, chest pain, and arrhythmias with modern cardiac monitoring.
+✅ Stroke Management: Quick assessment and intervention to minimize brain damage and improve recovery outcomes.
+✅ Pediatric Emergencies: Specialized emergency care for infants and children.
+✅ Intensive Care Support: On-site ICU facilities for patients requiring critical monitoring and treatment.
+✅ Ambulance Services: Well-equipped ambulances with trained paramedics for emergency transport.`,
+    image: "images/emergency.jpg"
+  }
+};
+
+document.querySelectorAll('.service-link').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const key = btn.dataset.service;
+    panelTitle.innerText = serviceInfo[key].title;
+    panelContent.innerText = serviceInfo[key].content;
+    document.getElementById('panelImage').src = serviceInfo[key].image;
+    panel.classList.add('open');
+  });
+});
+
+    function closePanel() {
+      panel.classList.remove('open');
+      overlay.classList.remove('show');
+    }
+  </script>
+	<script src="checkscript.js"></script>
+
+      <script>
+    function showSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'flex'
+    }
+    function hideSidebar(){
+      const sidebar = document.querySelector('.sidebar')
+      sidebar.style.display = 'none'
+    }
+  </script>
+
+<script>
+function openPanel(title, img, content) {
+  document.getElementById("panelTitle").innerText = title;
+  document.getElementById("panelImage").src = img;
+  document.getElementById("panelContent").innerText = content;
+  document.getElementById("infoPanel").classList.add("open");
+}
+
+function closePanel() {
+  document.getElementById("infoPanel").classList.remove("open");
+}
+
+const form = document.getElementById("contactForm");
+
+if (!form) {
+  alert("Form ID not found! Check your form ID.");
+} else {
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const address = document.getElementById("address").value.trim();
+    const location = document.getElementById("location").value.trim();
+    const description = document.getElementById("description").value.trim();
+
+    if (!name || !email || !address || !location || !description) {
+      alert("Please fill all fields!");
+      return;
+    }
+
+    // ✅ 404 message popup
+    alert("This page is 404 page");
+  });
+
+}
+
+function toggleDropdown(el) {
+  const parent = el.parentElement;
+  const menu = parent.querySelector(".dropdown-menu");
+
+  // Close any other open dropdowns
+  document.querySelectorAll(".dropdown-menu").forEach(d => {
+    if (d !== menu) d.classList.remove("show");
+  });
+
+  // Toggle this one
+  menu.classList.toggle("show");
+}
+
+function showSidebar() {
+  document.getElementById("sidebar").classList.add("active");
+}
+
+function hideSidebar() {
+  document.getElementById("sidebar").classList.remove("active");
+}
+
+// Close dropdown when clicking outside
+document.addEventListener("click", function(e) {
+  if (!e.target.closest(".dropdown")) {
+    document.querySelectorAll(".dropdown-menu").forEach(menu => {
+      menu.classList.remove("show");
+    });
+  }
+});
+
+function toggleDropdown(el) {
+  const dropdown = el.parentElement;
+  const menu = dropdown.querySelector(".dropdown-menu");
+
+  // Close others
+  document.querySelectorAll(".dropdown-menu").forEach(m => {
+    if (m !== menu) m.classList.remove("show");
+  });
+
+  // Toggle current
+  menu.classList.toggle("show");
+}
+
+// Close when clicking outside
+document.addEventListener("click", function(e) {
+  if (!e.target.closest(".dropdown")) {
+    document.querySelectorAll(".dropdown-menu").forEach(menu => {
+      menu.classList.remove("show");
+    });
+  }
+});
+
+function toggleDropdown(elOrDropdown) {
+  const dropdown = elOrDropdown.closest(".dropdown");
+  const menu = dropdown.querySelector(".dropdown-menu");
+
+  // Close other open dropdowns
+  document.querySelectorAll(".dropdown-menu").forEach(m => {
+    if (m !== menu) m.classList.remove("show");
+  });
+
+  // Toggle this dropdown
+  menu.classList.toggle("show");
+
+  const link = dropdown.querySelector(".home-link");
+  if (link) link.setAttribute("aria-expanded", menu.classList.contains("show"));
+}
+
+// Close when clicking outside
+document.addEventListener("click", function(e) {
+  if (!e.target.closest(".dropdown")) {
+    document.querySelectorAll(".dropdown-menu").forEach(menu => menu.classList.remove("show"));
+  }
+});
+
+// Sidebar open/close
+function showSidebar() {
+  document.getElementById("sidebar").classList.add("active");
+}
+
+function hideSidebar() {
+  document.getElementById("sidebar").classList.remove("active");
+}
+</script>
+
+<script>
+function toggleDropdown(el) {
+  const menu = el.nextElementSibling;
+  menu.classList.toggle("show");
+}
+
+function toggleMobileMenu() {
+  document.getElementById("mobileMenu").classList.toggle("show");
+}
+
+const stats = document.querySelectorAll('.stat');
+
+if (stats.length) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('flip-up');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  stats.forEach(stat => observer.observe(stat));
+}
+</script>
+</body>
+</html>
