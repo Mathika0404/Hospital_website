@@ -442,6 +442,37 @@
   }
 }
 
+  .medicine-cards {
+    display: grid;
+    grid-template-columns: 1fr;   /* 1 column */
+    gap: 16px;
+  }
+
+  .medicine-item {
+    display: flex;
+    flex-direction: column;      /* image on top, text below */
+    align-items: center;
+    text-align: center;
+  }
+
+  .medicine-item img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .medicine-content {
+    padding: 12px;
+  }
+
+  .medicine-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .medicine-content p {
+    font-size: 0.9rem;
+  }
 </style>
 </head>
 
@@ -797,6 +828,45 @@
   }
 }
 
+/* 📱 Extra Small Devices (360px and below) */
+@media screen and (max-width: 360px) {
+
+  .about-inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-content {
+    text-align: left;
+  }
+
+  .about-image {
+    order: 2;              /* image goes below content */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-image img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .about-content button {
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .about-features {
+    gap: 15px;
+  }
+
+  .feature {
+    align-items: flex-start;
+  }
+}
 
 </style>
 
