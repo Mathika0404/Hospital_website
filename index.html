@@ -1645,7 +1645,7 @@ if (aboutImg) {
 
 function validateAlphabetic(input) {
   const error = document.getElementById("alphaError");
-  const regex = /^[A-Za-z\s]*$/; // allows letters and spaces
+  const regex = /^[A-Za-z\s]*$/; // letters and spaces only
 
   if (!regex.test(input.value)) {
     error.style.display = "block";
@@ -1653,6 +1653,30 @@ function validateAlphabetic(input) {
   } else {
     error.style.display = "none";
   }
+}
+
+function handleSearch() {
+  const input = document.getElementById("alphaOnly");
+  const error = document.getElementById("alphaError");
+
+  // Trim spaces
+  const value = input.value.trim();
+
+  // If empty → go to 404 page
+  if (value === "") {
+    window.location.href = "404page.html";
+    return;
+  }
+
+  // If contains invalid characters (extra safety)
+  const regex = /^[A-Za-z\s]+$/;
+  if (!regex.test(value)) {
+    error.style.display = "block";
+    return;
+  }
+
+  // ✅ Valid search (you can change this behavior later)
+  window.location.href = "404page.html";
 }
 </script>
 </body>
